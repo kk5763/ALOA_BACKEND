@@ -29,6 +29,16 @@ public class Account {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date update;
+	
+	private int admin;
+	
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
 
 	public Long getId() {
 		return id;
