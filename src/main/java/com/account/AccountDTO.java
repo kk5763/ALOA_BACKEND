@@ -2,19 +2,22 @@ package com.account;
 
 import java.util.Date;
 
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 //TODO Spring data rest 프로젝트 확인.
 public class AccountDTO {
 	public static class Create{
-		@NotBlank
-		@Size(min = 10)
+		@NotBlank(message="email을 입력하십시오")
+		@Size(min = 10, max=35)
+		@Email(message="올바른 email 형식이 아닙니다")
 		private String username;
 		
-		@NotBlank
-		@Size(min = 8)
+		@NotBlank(message="비밀번호를 입력하십시오")
+		@Size(min = 8, max=20, message="8~20자 이내의 패스워드를 사용해 주세요.")
 		private String password;
 		
 		public String getUsername() {
